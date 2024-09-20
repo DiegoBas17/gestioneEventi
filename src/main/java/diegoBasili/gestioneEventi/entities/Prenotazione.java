@@ -24,4 +24,9 @@ public class Prenotazione {
     @ManyToOne
     @JoinColumn(name = "evento_id", nullable = false)
     private Evento evento;
+
+    public Prenotazione(Utente utente, Evento evento) {
+        this.utente = utente;
+        this.evento = evento;
+    }
 }

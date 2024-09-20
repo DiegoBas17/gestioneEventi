@@ -1,5 +1,6 @@
 package diegoBasili.gestioneEventi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,10 +35,12 @@ public class Evento {
         this.organizzatore = organizzatore;
     }
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "utente_id", nullable = false)
     private Utente organizzatore;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "evento")
     private List<Prenotazione> prenotazioni = new ArrayList<>();
 }
