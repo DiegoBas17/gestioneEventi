@@ -66,7 +66,7 @@ public class UtentiController {
     }
 
     @DeleteMapping("/me/{eventoId}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ORGANIZZATORE')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEvento(@PathVariable UUID eventoId, @AuthenticationPrincipal Utente utente) {
         List<Evento> listaEventi = eventiService.findByOrganizzatore(utente);
