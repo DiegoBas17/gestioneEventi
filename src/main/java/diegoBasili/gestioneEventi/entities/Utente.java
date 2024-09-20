@@ -33,4 +33,10 @@ public class Utente {
     @JsonIgnore
     @OneToMany(mappedBy = "organizzatore")
     private  List<Evento> eventi = new ArrayList<>();
+
+    public Utente(String email, String password, Ruolo ruolo) {
+        this.email = email;
+        this.password = password;
+        this.ruolo = ruolo;
+    }
 }
