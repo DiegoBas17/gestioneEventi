@@ -11,6 +11,6 @@ public record UtenteDTO (@NotEmpty(message = "L'email è obbligatoria")
                          @Size(min = 3, max = 40)
                          String password,
                          @NotEmpty(message = "il ruolo è obbligatorio!")
-                         @Size(min = 3, max = 10)
+                         @Size(min = 3, max = 20)
                          String ruolo)  {
 }

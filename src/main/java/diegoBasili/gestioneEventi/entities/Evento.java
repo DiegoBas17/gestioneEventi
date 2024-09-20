@@ -25,6 +25,15 @@ public class Evento {
     private String luogo;
     private int numeroPostiDisponibili;
 
+    public Evento(String titolo, String descrizione, LocalDate dataEvento, String luogo, int numeroPostiDisponibili, Utente organizzatore) {
+        this.titolo = titolo;
+        this.descrizione = descrizione;
+        this.dataEvento = dataEvento;
+        this.luogo = luogo;
+        this.numeroPostiDisponibili = numeroPostiDisponibili;
+        this.organizzatore = organizzatore;
+    }
+
     @ManyToOne
     @JoinColumn(name = "utente_id", nullable = false)
     private Utente organizzatore;
