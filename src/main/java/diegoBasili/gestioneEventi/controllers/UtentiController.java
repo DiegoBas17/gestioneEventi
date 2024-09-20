@@ -51,10 +51,10 @@ public class UtentiController {
         return this.utentiService.findAll(page, size, sortBy);
     }
 
-    @GetMapping("/{dipendenteId}")
+    @GetMapping("/{eventoId}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public Utente findById(@PathVariable UUID dipendenteId){
-        return this.utentiService.findById(dipendenteId);
+    public Utente findById(@PathVariable UUID eventoId){
+        return this.utentiService.findById(eventoId);
     }
 
     @PutMapping("/me/eventi/{eventoId}")
