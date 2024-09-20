@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -19,6 +20,8 @@ import java.util.UUID;
 public class UtentiService {
     @Autowired
     private UtentiRepository utentiRepository;
+    @Autowired
+    private PasswordEncoder bcrypt;
 
     public Utente saveUtente(UtenteDTO body) {
         if (body == null) {
@@ -32,7 +35,7 @@ public class UtentiService {
             } catch (IllegalArgumentException e) {
                 throw new BadRequestException("Ruolo utente non valido: " + body.ruolo() + " i ruoli disponibili sono: NORMALE o ORGANIZZATORE!");
             }
-            Utente dipendente = new Utente(body.email(), body.password(), ruolo);
+            Utente dipendente = new Utente(body.email(), bcrypt.encode(body.password()), ruolo);
             return this.utentiRepository.save(dipendente);
         }
     }
