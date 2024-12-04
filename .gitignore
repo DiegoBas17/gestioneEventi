@@ -32,4 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 
-env.properties
+../Epicode-W20BW5/env.properties
